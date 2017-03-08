@@ -16,6 +16,7 @@ Highest score all-time of students: 23,000H/s
 Final implementation: 43,511H/s
 Final theoretical performance (without core): 70,000-80,000H/sec
 
-Professor's "core" implementation: 120,000
 
-Note, the contents of this repo are as they were developed and will be cleaned/organized at a later date. As the project need not be "delivered", it was simply developed on an as-is basis without regard to organizational techniques.
+Note: the contents of this repo are as they were developed and will be cleaned/organized at a later date. As the project need not be "delivered", it was simply developed on an as-is basis without regard to organizational techniques.
+
+To future students (including URI) who might stumble upon this project: Please refer to the license and, more importantly, the plagiarism and academic dishonesty section of your school handbook.
