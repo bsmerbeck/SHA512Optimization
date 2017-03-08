@@ -10,8 +10,8 @@ History: The project began with a pure-software implementation and evolved into 
 Intial Performance: 64H/sec
 Final Performance in Directed Lab: 1786H/s
 
-Highest score of current student: 2,500H/s
-Highest score all-time of students: 23,000H/s
+Highest score of attended class: 2,500H/s
+All-time course high score: 23,000H/s
 
 Final implementation: 43,511H/s
 Final theoretical performance (without core): 70,000-80,000H/sec
