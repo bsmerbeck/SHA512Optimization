@@ -1,0 +1,2 @@
+# SHA512Optimization
+Repository for my Optimization of the SHA512 algorithm on a Cyclone II DE1 FPGA board, restricted by 87 32-bit registers and software-based hash message generation. The development process began with a pure-software implementation at 64H/sec, achieved course proficiency at 2,000H/s, surpassed the course's current students at 2,500H/s, surpassed the courses all-time high score at 24,000H/s, and finished with a performance of over 40,000H/s. Further documentation will be added as the repo is cleaned and properly structured.
