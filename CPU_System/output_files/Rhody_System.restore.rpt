@@ -1,0 +1,88 @@
+Restore Archived Project report for Rhody_System
+Wed Nov 16 14:19:30 2016
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Restore Archived Project Summary
+  3. Restore Archived Project Messages
+  4. Files Restored
+  5. Files Not Restored
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Restore Archived Project Summary                                        ;
++---------------------------------+---------------------------------------+
+; Restore Archived Project Status ; Successful - Wed Nov 16 14:19:30 2016 ;
+; Revision Name                   ; Rhody_System                          ;
+; Top-level Entity Name           ; Rhody_System                          ;
+; Family                          ; Cyclone II                            ;
++---------------------------------+---------------------------------------+
+
+
++-----------------------------------+
+; Restore Archived Project Messages ;
++-----------------------------------+
+Info: Successfully restored '/u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512.qar' into the '/u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/' directory
+Info: Generated report 'Rhody_System.restore.rpt'
+Info (23030): Evaluation of Tcl script /net/usr/quartus13.0sp1/quartus/common/tcl/apps/qpm/qar.tcl was successful
+Info: Quartus II 32-bit Shell was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 212 megabytes
+    Info: Processing ended: Wed Nov 16 14:19:30 2016
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
+
+
++---------------------------------------------------------+
+; Files Restored                                          ;
++---------------------------------------------------------+
+; File Name                                               ;
++---------------------------------------------------------+
+; ALU.vhd                                                 ;
+; IO/gpio.vhd                                             ;
+; IO/random.vhd                                           ;
+; IO/sevenseg.vhd                                         ;
+; IO/timer.vhd                                            ;
+; Library.hex                                             ;
+; Rhody_CPU_basic.vhd                                     ;
+; Rhody_CPU_pipeline.vhd                                  ;
+; Rhody_System.qpf                                        ;
+; Rhody_System.qsf                                        ;
+; Rhody_System.vhd                                        ;
+; Rhody_System_assignment_defaults.qdf                    ;
+; assignment_defaults.qdf                                 ;
+; incremental_db/compiled_partitions/Rhody_System.db_info ;
+; time.hex                                                ;
++---------------------------------------------------------+
+
+
++--------------------+
+; Files Not Restored ;
++--------------------+
+; File Name          ;
++--------------------+
+
+

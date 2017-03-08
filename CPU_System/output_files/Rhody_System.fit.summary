@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Dec 20 15:51:09 2016
+Quartus II 32-bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version
+Revision Name : Rhody_System
+Top-level Entity Name : Rhody_System
+Family : Cyclone II
+Device : EP2C20F484C7
+Timing Models : Final
+Total logic elements : 8,310 / 18,752 ( 44 % )
+    Total combinational functions : 8,061 / 18,752 ( 43 % )
+    Dedicated logic registers : 3,152 / 18,752 ( 17 % )
+Total registers : 3152
+Total pins : 47 / 315 ( 15 % )
+Total virtual pins : 0
+Total memory bits : 131,072 / 239,616 ( 55 % )
+Embedded Multiplier 9-bit elements : 8 / 52 ( 15 % )
+Total PLLs : 0 / 4 ( 0 % )

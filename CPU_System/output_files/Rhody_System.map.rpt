@@ -1,0 +1,1658 @@
+Analysis & Synthesis report for Rhody_System
+Tue Dec 20 15:50:39 2016
+Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Source assignments for altsyncram:Program_ROM|altsyncram_enr3:auto_generated|altsyncram_71q2:altsyncram1
+ 16. Source assignments for altsyncram:Data_Memory|altsyncram_ujn3:auto_generated
+ 17. Source assignments for altsyncram:Stack_Memory|altsyncram_ujn3:auto_generated
+ 18. Source assignments for altsyncram:SYS_ROM|altsyncram_3pn3:auto_generated
+ 19. Parameter Settings for User Entity Instance: Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component
+ 20. Parameter Settings for User Entity Instance: altsyncram:Program_ROM
+ 21. Parameter Settings for User Entity Instance: altsyncram:Data_Memory
+ 22. Parameter Settings for User Entity Instance: altsyncram:Stack_Memory
+ 23. Parameter Settings for User Entity Instance: altsyncram:SYS_ROM
+ 24. Parameter Settings for User Entity Instance: timer:System_Timer0
+ 25. Parameter Settings for Inferred Entity Instance: Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0
+ 26. altsyncram Parameter Settings by Entity Instance
+ 27. lpm_mult Parameter Settings by Entity Instance
+ 28. Port Connectivity Checks: "timer:System_Timer0"
+ 29. In-System Memory Content Editor Settings
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                          ;
++------------------------------------+--------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec 20 15:50:39 2016            ;
+; Quartus II 32-bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
+; Revision Name                      ; Rhody_System                                     ;
+; Top-level Entity Name              ; Rhody_System                                     ;
+; Family                             ; Cyclone II                                       ;
+; Total logic elements               ; 8,219                                            ;
+;     Total combinational functions  ; 8,061                                            ;
+;     Dedicated logic registers      ; 3,152                                            ;
+; Total registers                    ; 3152                                             ;
+; Total pins                         ; 47                                               ;
+; Total virtual pins                 ; 0                                                ;
+; Total memory bits                  ; 131,072                                          ;
+; Embedded Multiplier 9-bit elements ; 8                                                ;
+; Total PLLs                         ; 0                                                ;
++------------------------------------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; Rhody_System       ; Rhody_System       ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-8         ;   0.0%      ;
++----------------------------+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                     ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                             ; File Name with Absolute Path                                                                        ; Library ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+; Rhody_System.vhd                 ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/Rhody_System.vhd          ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/ALU.vhd                   ;         ;
+; time.hex                         ; yes             ; User Hexadecimal (Intel-Format) File  ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/time.hex                  ;         ;
+; Library.hex                      ; yes             ; User Hexadecimal (Intel-Format) File  ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/Library.hex               ;         ;
+; IO/gpio.vhd                      ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/IO/gpio.vhd               ;         ;
+; IO/sevenseg.vhd                  ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/IO/sevenseg.vhd           ;         ;
+; IO/timer.vhd                     ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/IO/timer.vhd              ;         ;
+; IO/random.vhd                    ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/IO/random.vhd             ;         ;
+; Rhody_CPU_pipelinev43.vhd        ; yes             ; User VHDL File                        ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/Rhody_CPU_pipelinev43.vhd ;         ;
+; lpm_add_sub.tdf                  ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.tdf                             ;         ;
+; addcore.inc                      ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/addcore.inc                                 ;         ;
+; look_add.inc                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/look_add.inc                                ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/bypassff.inc                                ;         ;
+; altshift.inc                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/altshift.inc                                ;         ;
+; alt_stratix_add_sub.inc          ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/alt_stratix_add_sub.inc                     ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                              ;         ;
+; db/add_sub_4oh.tdf               ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/add_sub_4oh.tdf        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/altsyncram.tdf                              ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/stratix_ram_block.inc                       ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/lpm_mux.inc                                 ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/lpm_decode.inc                              ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/a_rdenreg.inc                               ;         ;
+; altrom.inc                       ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/altrom.inc                                  ;         ;
+; altram.inc                       ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/altram.inc                                  ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/altdpram.inc                                ;         ;
+; db/altsyncram_enr3.tdf           ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/altsyncram_enr3.tdf    ;         ;
+; db/altsyncram_71q2.tdf           ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/altsyncram_71q2.tdf    ;         ;
+; sld_mod_ram_rom.vhd              ; yes             ; Encrypted Megafunction                ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/sld_mod_ram_rom.vhd                         ;         ;
+; sld_rom_sr.vhd                   ; yes             ; Encrypted Megafunction                ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/sld_rom_sr.vhd                              ;         ;
+; db/altsyncram_ujn3.tdf           ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/altsyncram_ujn3.tdf    ;         ;
+; db/altsyncram_3pn3.tdf           ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/altsyncram_3pn3.tdf    ;         ;
+; sld_hub.vhd                      ; yes             ; Encrypted Megafunction                ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/sld_hub.vhd                                 ;         ;
+; sld_jtag_hub.vhd                 ; yes             ; Encrypted Megafunction                ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/sld_jtag_hub.vhd                            ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/lpm_mult.tdf                                ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/lpm_add_sub.inc                             ;         ;
+; multcore.inc                     ; yes             ; Megafunction                          ; /net/usr/quartus13.0sp1/quartus/libraries/megafunctions/multcore.inc                                ;         ;
+; db/mult_i1t.tdf                  ; yes             ; Auto-Generated Megafunction           ; /u/ugrads/bsmerbeck/Documents/ELE406/Project/Rhody_System_SHA512_restored/db/mult_i1t.tdf           ;         ;
++----------------------------------+-----------------+---------------------------------------+-----------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 8,219    ;
+;                                             ;          ;
+; Total combinational functions               ; 8061     ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 3588     ;
+;     -- 3 input functions                    ; 3236     ;
+;     -- <=2 input functions                  ; 1237     ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 6616     ;
+;     -- arithmetic mode                      ; 1445     ;
+;                                             ;          ;
+; Total registers                             ; 3152     ;
+;     -- Dedicated logic registers            ; 3152     ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 47       ;
+; Total memory bits                           ; 131072   ;
+; Embedded Multiplier 9-bit elements          ; 8        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 3136     ;
+; Total fan-out                               ; 39352    ;
+; Average fan-out                             ; 3.45     ;
++---------------------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                            ;
++------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                                       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                              ; Library Name ;
++------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |Rhody_System                                                    ; 8061 (162)        ; 3152 (7)     ; 131072      ; 8            ; 0       ; 4         ; 47   ; 0            ; |Rhody_System                                                                                                                                    ; work         ;
+;    |Rhody_CPU_pipelinev43:the_cpu|                               ; 7600 (7105)       ; 2901 (2901)  ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu                                                                                                      ; work         ;
+;       |alu:Rhody_ALU|                                            ; 495 (337)         ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU                                                                                        ; work         ;
+;          |lpm_add_sub:lpm_add_sub_component|                     ; 66 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component                                                      ; work         ;
+;             |add_sub_4oh:auto_generated|                         ; 66 (66)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component|add_sub_4oh:auto_generated                           ; work         ;
+;          |lpm_mult:Mult0|                                        ; 92 (0)            ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0                                                                         ; work         ;
+;             |mult_i1t:auto_generated|                            ; 92 (92)           ; 0 (0)        ; 0           ; 8            ; 0       ; 4         ; 0    ; 0            ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated                                                 ; work         ;
+;    |altsyncram:Data_Memory|                                      ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Data_Memory                                                                                                             ; work         ;
+;       |altsyncram_ujn3:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Data_Memory|altsyncram_ujn3:auto_generated                                                                              ; work         ;
+;    |altsyncram:Program_ROM|                                      ; 93 (0)            ; 64 (0)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Program_ROM                                                                                                             ; work         ;
+;       |altsyncram_enr3:auto_generated|                           ; 93 (0)            ; 64 (0)       ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated                                                                              ; work         ;
+;          |altsyncram_71q2:altsyncram1|                           ; 0 (0)             ; 0 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|altsyncram_71q2:altsyncram1                                                  ; work         ;
+;          |sld_mod_ram_rom:mgl_prim2|                             ; 93 (72)           ; 64 (55)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2                                                    ; work         ;
+;             |sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr| ; 21 (21)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr ; work         ;
+;    |altsyncram:SYS_ROM|                                          ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:SYS_ROM                                                                                                                 ; work         ;
+;       |altsyncram_3pn3:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:SYS_ROM|altsyncram_3pn3:auto_generated                                                                                  ; work         ;
+;    |altsyncram:Stack_Memory|                                     ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Stack_Memory                                                                                                            ; work         ;
+;       |altsyncram_ujn3:auto_generated|                           ; 0 (0)             ; 0 (0)        ; 16384       ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|altsyncram:Stack_Memory|altsyncram_ujn3:auto_generated                                                                             ; work         ;
+;    |gpio:switches_and_leds|                                      ; 44 (16)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|gpio:switches_and_leds                                                                                                             ; work         ;
+;       |sevenseg:display0|                                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|gpio:switches_and_leds|sevenseg:display0                                                                                           ; work         ;
+;       |sevenseg:display1|                                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|gpio:switches_and_leds|sevenseg:display1                                                                                           ; work         ;
+;       |sevenseg:display2|                                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|gpio:switches_and_leds|sevenseg:display2                                                                                           ; work         ;
+;       |sevenseg:display3|                                        ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|gpio:switches_and_leds|sevenseg:display3                                                                                           ; work         ;
+;    |random:Pseudo_Random|                                        ; 9 (9)             ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|random:Pseudo_Random                                                                                                               ; work         ;
+;    |sld_hub:auto_hub|                                            ; 116 (1)           ; 80 (0)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|sld_hub:auto_hub                                                                                                                   ; work         ;
+;       |sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|             ; 115 (78)          ; 80 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst                                                                      ; work         ;
+;          |sld_rom_sr:hub_info_reg|                               ; 20 (20)           ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg                                              ; work         ;
+;          |sld_shadow_jsm:shadow_jsm|                             ; 17 (17)           ; 19 (19)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_shadow_jsm:shadow_jsm                                            ; work         ;
+;    |timer:System_Timer0|                                         ; 37 (37)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Rhody_System|timer:System_Timer0                                                                                                                ; work         ;
++------------------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                       ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-------------+
+; Name                                                                                         ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF         ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-------------+
+; altsyncram:Data_Memory|altsyncram_ujn3:auto_generated|ALTSYNCRAM                             ; AUTO ; Single Port    ; 512          ; 32           ; --           ; --           ; 16384 ; None        ;
+; altsyncram:Program_ROM|altsyncram_enr3:auto_generated|altsyncram_71q2:altsyncram1|ALTSYNCRAM ; AUTO ; True Dual Port ; 2048         ; 32           ; 2048         ; 32           ; 65536 ; time.hex    ;
+; altsyncram:SYS_ROM|altsyncram_3pn3:auto_generated|ALTSYNCRAM                                 ; AUTO ; ROM            ; 1024         ; 32           ; --           ; --           ; 32768 ; Library.hex ;
+; altsyncram:Stack_Memory|altsyncram_ujn3:auto_generated|ALTSYNCRAM                            ; AUTO ; Single Port    ; 512          ; 32           ; --           ; --           ; 16384 ; None        ;
++----------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+-------+-------------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 4           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 8           ;
+; Signed Embedded Multipliers           ; 1           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 2           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
++------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                             ;
++---------------------------------------------+--------------------------------------------------+
+; Register name                               ; Reason for Removal                               ;
++---------------------------------------------+--------------------------------------------------+
+; gpio:switches_and_leds|gpio_out[8..31]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[63]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[61,62]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[60]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[59]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[58]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[57]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[52..56]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[51]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[49,50]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[45..48]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[43,44]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[41,42]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[39,40]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[37,38]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[35,36]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[28..34]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[26,27]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[23..25]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[22]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[18..21]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[16,17]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[14,15]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[12,13]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[11]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[9,10]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[8]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[4..7]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[3]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h0[0..2]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[63]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[62]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[59..61]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[58]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[56,57]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[55]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[53,54]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[51,52]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[47..50]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[46]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[45]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[44]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[41..43]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[40]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[39]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[35..38]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[34]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[33]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[31,32]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[27..30]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[26]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[24,25]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[22,23]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[20,21]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[19]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[18]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[17]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[16]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[15]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[14]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[13]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[11,12]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[8..10]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[6,7]       ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[3..5]      ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[2]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h1[0,1]       ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[62,63]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[58..61]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[55..57]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[53,54]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[52]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[49..51]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[48]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[44..47]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[42,43]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[40,41]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[39]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[36..38]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[34,35]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[33]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[32]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[25..31]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[24]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[23]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[21,22]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[20]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[19]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[18]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[16,17]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[11..15]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[6..10]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[5]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[4]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[3]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[2]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h2[0,1]       ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[63]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[62]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[61]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[59,60]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[58]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[57]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[56]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[55]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[54]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[52,53]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[44..51]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[43]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[42]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[41]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[40]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[38,39]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[35..37]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[34]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[33]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[31,32]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[30]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[29]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[24..28]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[21..23]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[18..20]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[17]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[16]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[14,15]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[12,13]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[11]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[9,10]      ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[8]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[4..7]      ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[1..3]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h3[0]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[63]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[62]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[61]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[60]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[57..59]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[56]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[52..55]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[49..51]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[47,48]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[46]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[45]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[44]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[42,43]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[41]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[39,40]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[31..38]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[30]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[29]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[28]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[26,27]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[25]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[21..24]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[19,20]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[17,18]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[16]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[15]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[10..14]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[9]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[8]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[6,7]       ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[5]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[4]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[1..3]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h4[0]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[63]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[61,62]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[59,60]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[58]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[56,57]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[51..55]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[50]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[49]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[48]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[47]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[45,46]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[44]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[43]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[40..42]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[39]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[36..38]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[34,35]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[30..33]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[29]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[28]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[27]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[26]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[24,25]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[22,23]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[17..21]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[15,16]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[13,14]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[12]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[10,11]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[5..9]      ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h5[0..4]      ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[61..63]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[55..60]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[50..54]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[46..49]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[45]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[43,44]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[41,42]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[39,40]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[38]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[37]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[36]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[35]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[34]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[27..33]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[26]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[24,25]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[23]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[22]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[17..21]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[15,16]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[14]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[10..13]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[9]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[8]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[7]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[5,6]       ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[4]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[3]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[2]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h6[0,1]       ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[63]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[62]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[61]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[59,60]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[58]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[53..57]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[48..52]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[46,47]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[44,45]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[42,43]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[41]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[40]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[37..39]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[35,36]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[33,34]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[32]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[29..31]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[28]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[26,27]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[24,25]     ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[23]        ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[17..22]    ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[14..16]    ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[13]        ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[9..12]     ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[8]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[7]         ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[3..6]      ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[1,2]       ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|h7[0]         ; Stuck at VCC due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|tmpyy[20..31] ; Stuck at GND due to stuck port data_in           ;
+; Rhody_CPU_pipelinev43:the_cpu|stage4        ; Merged with Rhody_CPU_pipelinev43:the_cpu|update ;
+; Rhody_CPU_pipelinev43:the_cpu|stage3        ; Merged with Rhody_CPU_pipelinev43:the_cpu|update ;
+; Rhody_CPU_pipelinev43:the_cpu|stage2        ; Merged with Rhody_CPU_pipelinev43:the_cpu|update ;
+; Rhody_CPU_pipelinev43:the_cpu|stage1        ; Merged with Rhody_CPU_pipelinev43:the_cpu|update ;
+; Rhody_CPU_pipelinev43:the_cpu|scount[3..31] ; Lost fanout                                      ;
+; Rhody_CPU_pipelinev43:the_cpu|rcount[31]    ; Lost fanout                                      ;
+; Total Number of Removed Registers = 582     ;                                                  ;
++---------------------------------------------+--------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                         ;
++------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; Register name                            ; Reason for Removal ; Registers Removed due to This Register                                              ;
++------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+; Rhody_CPU_pipelinev43:the_cpu|scount[31] ; Lost Fanouts       ; Rhody_CPU_pipelinev43:the_cpu|scount[30], Rhody_CPU_pipelinev43:the_cpu|scount[29], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[28], Rhody_CPU_pipelinev43:the_cpu|scount[27], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[26], Rhody_CPU_pipelinev43:the_cpu|scount[25], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[24], Rhody_CPU_pipelinev43:the_cpu|scount[23], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[22], Rhody_CPU_pipelinev43:the_cpu|scount[21], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[20], Rhody_CPU_pipelinev43:the_cpu|scount[19], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[18], Rhody_CPU_pipelinev43:the_cpu|scount[17], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[16], Rhody_CPU_pipelinev43:the_cpu|scount[15], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[14], Rhody_CPU_pipelinev43:the_cpu|scount[13], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[12], Rhody_CPU_pipelinev43:the_cpu|scount[11], ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[10], Rhody_CPU_pipelinev43:the_cpu|scount[9],  ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[8], Rhody_CPU_pipelinev43:the_cpu|scount[7],   ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[6], Rhody_CPU_pipelinev43:the_cpu|scount[5],   ;
+;                                          ;                    ; Rhody_CPU_pipelinev43:the_cpu|scount[4], Rhody_CPU_pipelinev43:the_cpu|scount[3]    ;
++------------------------------------------+--------------------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 3152  ;
+; Number of registers using Synchronous Clear  ; 17    ;
+; Number of registers using Synchronous Load   ; 452   ;
+; Number of registers using Asynchronous Clear ; 988   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 2540  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Inverted Register Statistics                        ;
++-------------------------------------------+---------+
+; Inverted Register                         ; Fan out ;
++-------------------------------------------+---------+
+; Rhody_CPU_pipelinev43:the_cpu|SP[19]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[18]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[17]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[16]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[15]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[14]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[13]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[12]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[10]      ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[9]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[8]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[7]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[6]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[5]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[4]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[3]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[2]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[1]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|SP[0]       ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[0]      ; 7       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[33]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[32]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[31]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[29]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[27]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[26]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[24]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[23]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[22]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[21]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[18]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[17]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[15]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[9]      ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[7]      ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[6]      ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[4]      ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[33]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[32]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[31]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[30]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[29]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[28]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[25]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[24]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[23]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[21]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[20]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[19]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[18]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[15]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[14]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[11]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[8]      ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[3]      ; 7       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[49]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[46]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[44]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[41]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[38]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[37]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[36]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[35]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[34]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[48]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[47]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[46]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[45]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[42]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[41]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[38]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[37]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[34]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[51]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[50]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[51]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[56]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[57]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[59]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[60]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[61]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wve[62]     ; 6       ;
+; Rhody_CPU_pipelinev43:the_cpu|wva[62]     ; 6       ;
+; random:Pseudo_Random|rand[24]             ; 2       ;
+; random:Pseudo_Random|rand[2]              ; 2       ;
+; random:Pseudo_Random|rand[4]              ; 2       ;
+; random:Pseudo_Random|rand[5]              ; 2       ;
+; random:Pseudo_Random|rand[17]             ; 2       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvc[1]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvc[0]      ; 4       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvb[1]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvb[0]      ; 4       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvd[0]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvf[1]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvf[0]      ; 4       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvg[1]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvg[0]      ; 4       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvh[0]      ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvf[29]     ; 3       ;
+; Rhody_CPU_pipelinev43:the_cpu|wvf[27]     ; 3       ;
+; Total number of inverted registers = 303* ;         ;
++-------------------------------------------+---------+
+* Table truncated at 100 items. To change the number of inverted registers reported, set the "Number of Inverted Registers Reported" option under Assignments->Settings->Analysis and Synthesis Settings->More Settings
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_shift_cntr_reg[4]                                     ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_data_reg[18]                                               ;
+; 3:1                ; 11 bits   ; 22 LEs        ; 11 LEs               ; 11 LEs                 ; Yes        ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|ram_rom_addr_reg[3]                                                ;
+; 3:1                ; 236 bits  ; 472 LEs       ; 236 LEs              ; 236 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|wvg[61]                                                                                                              ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|word_counter[2] ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 3 LEs                ; 6 LEs                  ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|PSW[2]                                                                                                               ;
+; 17:1               ; 64 bits   ; 704 LEs       ; 704 LEs              ; 0 LEs                  ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|wout[45]                                                                                                             ;
+; 24:1               ; 4 bits    ; 64 LEs        ; 40 LEs               ; 24 LEs                 ; Yes        ; |Rhody_System|altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr|WORD_SR[3]      ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[15][45]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[14][54]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[13][38]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[12][59]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[11][56]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[10][56]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[9][42]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[8][32]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[7][40]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[6][35]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[5][32]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[4][45]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[3][42]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[2][50]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[1][36]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[0][58]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[15][26]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[14][10]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[13][16]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[12][25]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[11][24]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[10][16]                                                                                                        ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[9][17]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[8][24]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[7][24]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[6][24]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[5][12]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[4][19]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[3][1]                                                                                                          ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[2][13]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[1][19]                                                                                                         ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 32 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|mvect[0][1]                                                                                                          ;
+; 68:1               ; 32 bits   ; 1440 LEs      ; 0 LEs                ; 1440 LEs               ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|MDR_in[5]                                                                                                            ;
+; 10:1               ; 11 bits   ; 66 LEs        ; 22 LEs               ; 44 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|PC[22]                                                                                                               ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|PC[13]                                                                                                               ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 16 LEs               ; 8 LEs                  ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|PC[1]                                                                                                                ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[7][10]                                                                                                 ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[6][13]                                                                                                 ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[5][9]                                                                                                  ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[4][12]                                                                                                 ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[3][9]                                                                                                  ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[2][9]                                                                                                  ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[1][9]                                                                                                  ;
+; 18:1               ; 16 bits   ; 192 LEs       ; 80 LEs               ; 112 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[0][9]                                                                                                  ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[7][29]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[7][16]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[6][22]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[6][18]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[5][20]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[5][18]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[4][25]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[4][16]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[3][25]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[3][18]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[2][25]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[2][16]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[1][24]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[1][17]                                                                                                 ;
+; 20:1               ; 11 bits   ; 143 LEs       ; 66 LEs               ; 77 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[0][29]                                                                                                 ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 24 LEs               ; 28 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|register_file[0][17]                                                                                                 ;
+; 33:1               ; 32 bits   ; 704 LEs       ; 416 LEs              ; 288 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|MDR_out[19]                                                                                                          ;
+; 19:1               ; 13 bits   ; 156 LEs       ; 13 LEs               ; 143 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|SP[29]                                                                                                               ;
+; 17:1               ; 12 bits   ; 132 LEs       ; 36 LEs               ; 96 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|MAR[26]                                                                                                              ;
+; 17:1               ; 20 bits   ; 220 LEs       ; 80 LEs               ; 140 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|MAR[19]                                                                                                              ;
+; 3:1                ; 276 bits  ; 552 LEs       ; 276 LEs              ; 276 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|wve[15]                                                                                                              ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|operand1[8]                                                                                                          ;
+; 19:1               ; 19 bits   ; 228 LEs       ; 19 LEs               ; 209 LEs                ; Yes        ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|SP[6]                                                                                                                ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|Mux276                                                                                                               ;
+; 8:1                ; 32 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|Mux29                                                                                                                ;
+; 9:1                ; 32 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; No         ; |Rhody_System|Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|alu_out[15]                                                                                            ;
+; 7:1                ; 24 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |Rhody_System|mem_in[16]                                                                                                                                         ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |Rhody_System|mem_in[7]                                                                                                                                          ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg[0]                                                                 ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]                                                                    ;
+; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|word_counter[1]                                              ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[2]                                                                          ;
+; 34:1               ; 4 bits    ; 88 LEs        ; 56 LEs               ; 32 LEs                 ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[3]                                                                   ;
+; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |Rhody_System|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[1]                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Source assignments for altsyncram:Program_ROM|altsyncram_enr3:auto_generated|altsyncram_71q2:altsyncram1 ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                         ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                          ;
++---------------------------------+--------------------+------+--------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Source assignments for altsyncram:Data_Memory|altsyncram_ujn3:auto_generated ;
++---------------------------------+--------------------+------+----------------+
+; Assignment                      ; Value              ; From ; To             ;
++---------------------------------+--------------------+------+----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -              ;
++---------------------------------+--------------------+------+----------------+
+
+
++-------------------------------------------------------------------------------+
+; Source assignments for altsyncram:Stack_Memory|altsyncram_ujn3:auto_generated ;
++---------------------------------+--------------------+------+-----------------+
+; Assignment                      ; Value              ; From ; To              ;
++---------------------------------+--------------------+------+-----------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -               ;
++---------------------------------+--------------------+------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Source assignments for altsyncram:SYS_ROM|altsyncram_3pn3:auto_generated ;
++---------------------------------+--------------------+------+------------+
+; Assignment                      ; Value              ; From ; To         ;
++---------------------------------+--------------------+------+------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -          ;
++---------------------------------+--------------------+------+------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component ;
++------------------------+-------------+-------------------------------------------------------------------------------------+
+; Parameter Name         ; Value       ; Type                                                                                ;
++------------------------+-------------+-------------------------------------------------------------------------------------+
+; LPM_WIDTH              ; 32          ; Signed Integer                                                                      ;
+; LPM_REPRESENTATION     ; SIGNED      ; Untyped                                                                             ;
+; LPM_DIRECTION          ; DEFAULT     ; Untyped                                                                             ;
+; ONE_INPUT_IS_CONSTANT  ; NO          ; Untyped                                                                             ;
+; LPM_PIPELINE           ; 0           ; Untyped                                                                             ;
+; MAXIMIZE_SPEED         ; 5           ; Untyped                                                                             ;
+; REGISTERED_AT_END      ; 0           ; Untyped                                                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5           ; Untyped                                                                             ;
+; USE_CS_BUFFERS         ; 1           ; Untyped                                                                             ;
+; CARRY_CHAIN            ; MANUAL      ; Untyped                                                                             ;
+; CARRY_CHAIN_LENGTH     ; 48          ; CARRY_CHAIN_LENGTH                                                                  ;
+; DEVICE_FAMILY          ; Cyclone II  ; Untyped                                                                             ;
+; USE_WYS                ; OFF         ; Untyped                                                                             ;
+; STYLE                  ; FAST        ; Untyped                                                                             ;
+; CBXI_PARAMETER         ; add_sub_4oh ; Untyped                                                                             ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                                                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                                                                        ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                                                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                                                                      ;
++------------------------+-------------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: altsyncram:Program_ROM        ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; ROM                  ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Signed Integer ;
+; WIDTHAD_A                          ; 11                   ; Signed Integer ;
+; NUMWORDS_A                         ; 2048                 ; Signed Integer ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 1                    ; Signed Integer ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; time.hex             ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_enr3      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: altsyncram:Data_Memory        ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Signed Integer ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 1                    ; Signed Integer ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; UNUSED               ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ujn3      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: altsyncram:Stack_Memory       ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Signed Integer ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 1                    ; Signed Integer ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; UNUSED               ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_ujn3      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: altsyncram:SYS_ROM            ;
++------------------------------------+----------------------+----------------+
+; Parameter Name                     ; Value                ; Type           ;
++------------------------------------+----------------------+----------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped        ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY     ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY   ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE   ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped        ;
+; OPERATION_MODE                     ; ROM                  ; Untyped        ;
+; WIDTH_A                            ; 32                   ; Signed Integer ;
+; WIDTHAD_A                          ; 10                   ; Signed Integer ;
+; NUMWORDS_A                         ; 1024                 ; Signed Integer ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped        ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped        ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped        ;
+; WIDTH_B                            ; 1                    ; Signed Integer ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped        ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped        ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped        ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped        ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped        ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped        ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped        ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped        ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped        ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped        ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped        ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped        ;
+; INIT_FILE                          ; Library.hex          ; Untyped        ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped        ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped        ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped        ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped        ;
+; ENABLE_ECC                         ; FALSE                ; Untyped        ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped        ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer ;
+; DEVICE_FAMILY                      ; Cyclone II           ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_3pn3      ; Untyped        ;
++------------------------------------+----------------------+----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: timer:System_Timer0 ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; speed          ; 50000 ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0 ;
++------------------------------------------------+------------+-----------------------------------------------+
+; Parameter Name                                 ; Value      ; Type                                          ;
++------------------------------------------------+------------+-----------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE                                ;
+; LPM_WIDTHA                                     ; 32         ; Untyped                                       ;
+; LPM_WIDTHB                                     ; 32         ; Untyped                                       ;
+; LPM_WIDTHP                                     ; 64         ; Untyped                                       ;
+; LPM_WIDTHR                                     ; 64         ; Untyped                                       ;
+; LPM_WIDTHS                                     ; 1          ; Untyped                                       ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped                                       ;
+; LPM_PIPELINE                                   ; 0          ; Untyped                                       ;
+; LATENCY                                        ; 0          ; Untyped                                       ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped                                       ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped                                       ;
+; USE_EAB                                        ; OFF        ; Untyped                                       ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped                                       ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped                                       ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped                                       ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K                           ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped                                       ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped                                       ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped                                       ;
+; CBXI_PARAMETER                                 ; mult_i1t   ; Untyped                                       ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped                                       ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped                                       ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped                                       ;
++------------------------------------------------+------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                    ;
++-------------------------------------------+-------------------------+
+; Name                                      ; Value                   ;
++-------------------------------------------+-------------------------+
+; Number of entity instances                ; 4                       ;
+; Entity Instance                           ; altsyncram:Program_ROM  ;
+;     -- OPERATION_MODE                     ; ROM                     ;
+;     -- WIDTH_A                            ; 32                      ;
+;     -- NUMWORDS_A                         ; 2048                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED            ;
+;     -- WIDTH_B                            ; 1                       ;
+;     -- NUMWORDS_B                         ; 0                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE               ;
+; Entity Instance                           ; altsyncram:Data_Memory  ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT             ;
+;     -- WIDTH_A                            ; 32                      ;
+;     -- NUMWORDS_A                         ; 512                     ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED            ;
+;     -- WIDTH_B                            ; 1                       ;
+;     -- NUMWORDS_B                         ; 0                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE               ;
+; Entity Instance                           ; altsyncram:Stack_Memory ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT             ;
+;     -- WIDTH_A                            ; 32                      ;
+;     -- NUMWORDS_A                         ; 512                     ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED            ;
+;     -- WIDTH_B                            ; 1                       ;
+;     -- NUMWORDS_B                         ; 0                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE               ;
+; Entity Instance                           ; altsyncram:SYS_ROM      ;
+;     -- OPERATION_MODE                     ; ROM                     ;
+;     -- WIDTH_A                            ; 32                      ;
+;     -- NUMWORDS_A                         ; 1024                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED            ;
+;     -- WIDTH_B                            ; 1                       ;
+;     -- NUMWORDS_B                         ; 0                       ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE               ;
++-------------------------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                     ;
++---------------------------------------+------------------------------------------------------------+
+; Name                                  ; Value                                                      ;
++---------------------------------------+------------------------------------------------------------+
+; Number of entity instances            ; 1                                                          ;
+; Entity Instance                       ; Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 32                                                         ;
+;     -- LPM_WIDTHB                     ; 32                                                         ;
+;     -- LPM_WIDTHP                     ; 64                                                         ;
+;     -- LPM_REPRESENTATION             ; SIGNED                                                     ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                                                         ;
+;     -- USE_EAB                        ; OFF                                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                         ;
++---------------------------------------+------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "timer:System_Timer0"                                                                ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; int  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; iack ; Input  ; Info     ; Stuck at VCC                                                                        ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; In-System Memory Content Editor Settings                                                                          ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------+
+; Instance Index ; Instance ID ; Width ; Depth ; Mode       ; Hierarchy Location                                    ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------+
+; 0              ; PROG        ; 32    ; 2048  ; Read/Write ; altsyncram:Program_ROM|altsyncram_enr3:auto_generated ;
++----------------+-------------+-------+-------+------------+-------------------------------------------------------+
+
+
++---------------------------------+
+; Elapsed Time Per Partition      ;
++------------------+--------------+
+; Partition Name   ; Elapsed Time ;
++------------------+--------------+
+; Top              ; 00:00:30     ;
+; sld_hub:auto_hub ; 00:00:00     ;
++------------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 32-bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Tue Dec 20 15:49:58 2016
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Rhody_System -c Rhody_System
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev580.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev580-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev580
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipeline3new.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev3new-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev3new
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev3.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev3-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev3
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_System.vhd
+    Info (12022): Found design unit 1: Rhody_System-DE1
+    Info (12023): Found entity 1: Rhody_System
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_basic.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_no_int-Behaviour
+    Info (12023): Found entity 1: Rhody_CPU_no_int
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipeline.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipeline-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipeline
+Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
+    Info (12022): Found design unit 1: alu-alu_arch
+    Info (12023): Found entity 1: alu
+Info (12021): Found 2 design units, including 1 entities, in source file IO/gpio.vhd
+    Info (12022): Found design unit 1: gpio-gpio
+    Info (12023): Found entity 1: gpio
+Info (12021): Found 2 design units, including 1 entities, in source file IO/sevenseg.vhd
+    Info (12022): Found design unit 1: sevenseg-decoder
+    Info (12023): Found entity 1: sevenseg
+Info (12021): Found 2 design units, including 1 entities, in source file IO/timer.vhd
+    Info (12022): Found design unit 1: timer-repeat
+    Info (12023): Found entity 1: timer
+Info (12021): Found 2 design units, including 1 entities, in source file IO/random.vhd
+    Info (12022): Found design unit 1: random-LFSR
+    Info (12023): Found entity 1: random
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev2.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev2-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev2
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev5.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev5-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev5
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev581.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev581-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev581
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev6.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev6-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev6
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev7.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev7-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev7
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev9.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev9-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev9
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev10.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev10-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev10
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev11.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev11-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev11
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev112.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev112-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev112
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev113.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev113-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev113
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev28.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev28-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev28
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev41.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev41-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev41
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev42.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev42-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev42
+Info (12021): Found 2 design units, including 1 entities, in source file Rhody_CPU_pipelinev43.vhd
+    Info (12022): Found design unit 1: Rhody_CPU_pipelinev43-Structural
+    Info (12023): Found entity 1: Rhody_CPU_pipelinev43
+Info (12127): Elaborating entity "Rhody_System" for the top level hierarchy
+Info (12128): Elaborating entity "Rhody_CPU_pipelinev43" for hierarchy "Rhody_CPU_pipelinev43:the_cpu"
+Info (12128): Elaborating entity "alu" for hierarchy "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU"
+Info (12128): Elaborating entity "lpm_add_sub" for hierarchy "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component"
+Info (12130): Elaborated megafunction instantiation "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component"
+Info (12133): Instantiated megafunction "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component" with the following parameter:
+    Info (12134): Parameter "lpm_direction" = "unused"
+    Info (12134): Parameter "lpm_hint" = "one_input_is_CONSTANT=NO,Cin_used=NO"
+    Info (12134): Parameter "lpm_representation" = "SIGNED"
+    Info (12134): Parameter "lpm_type" = "LPM_ADD_SUB"
+    Info (12134): Parameter "lpm_width" = "32"
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_4oh.tdf
+    Info (12023): Found entity 1: add_sub_4oh
+Info (12128): Elaborating entity "add_sub_4oh" for hierarchy "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_add_sub:lpm_add_sub_component|add_sub_4oh:auto_generated"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "altsyncram:Program_ROM"
+Info (12130): Elaborated megafunction instantiation "altsyncram:Program_ROM"
+Info (12133): Instantiated megafunction "altsyncram:Program_ROM" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "unused"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "time.hex"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "2048"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "11"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=YES, INSTANCE_NAME=PROG"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_enr3.tdf
+    Info (12023): Found entity 1: altsyncram_enr3
+Info (12128): Elaborating entity "altsyncram_enr3" for hierarchy "altsyncram:Program_ROM|altsyncram_enr3:auto_generated"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_71q2.tdf
+    Info (12023): Found entity 1: altsyncram_71q2
+Info (12128): Elaborating entity "altsyncram_71q2" for hierarchy "altsyncram:Program_ROM|altsyncram_enr3:auto_generated|altsyncram_71q2:altsyncram1"
+Info (12128): Elaborating entity "sld_mod_ram_rom" for hierarchy "altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2"
+Info (12130): Elaborated megafunction instantiation "altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2"
+Info (12133): Instantiated megafunction "altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2" with the following parameter:
+    Info (12134): Parameter "CVALUE" = "00000000000000000000000000000000"
+    Info (12134): Parameter "IS_DATA_IN_RAM" = "1"
+    Info (12134): Parameter "IS_READABLE" = "1"
+    Info (12134): Parameter "NODE_NAME" = "1347571527"
+    Info (12134): Parameter "NUMWORDS" = "2048"
+    Info (12134): Parameter "SHIFT_COUNT_BITS" = "6"
+    Info (12134): Parameter "WIDTH_WORD" = "32"
+    Info (12134): Parameter "WIDTHAD" = "11"
+Info (12128): Elaborating entity "sld_rom_sr" for hierarchy "altsyncram:Program_ROM|altsyncram_enr3:auto_generated|sld_mod_ram_rom:mgl_prim2|sld_rom_sr:\ram_rom_logic_gen:name_gen:info_rom_sr"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "altsyncram:Data_Memory"
+Info (12130): Elaborated megafunction instantiation "altsyncram:Data_Memory"
+Info (12133): Instantiated megafunction "altsyncram:Data_Memory" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "unused"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "UNUSED"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_ujn3.tdf
+    Info (12023): Found entity 1: altsyncram_ujn3
+Info (12128): Elaborating entity "altsyncram_ujn3" for hierarchy "altsyncram:Data_Memory|altsyncram_ujn3:auto_generated"
+Info (12128): Elaborating entity "altsyncram" for hierarchy "altsyncram:SYS_ROM"
+Info (12130): Elaborated megafunction instantiation "altsyncram:SYS_ROM"
+Info (12133): Instantiated megafunction "altsyncram:SYS_ROM" with the following parameter:
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "unused"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "Library.hex"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "1024"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "10"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "UNUSED"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_3pn3.tdf
+    Info (12023): Found entity 1: altsyncram_3pn3
+Info (12128): Elaborating entity "altsyncram_3pn3" for hierarchy "altsyncram:SYS_ROM|altsyncram_3pn3:auto_generated"
+Info (12128): Elaborating entity "gpio" for hierarchy "gpio:switches_and_leds"
+Info (12128): Elaborating entity "sevenseg" for hierarchy "gpio:switches_and_leds|sevenseg:display3"
+Info (12128): Elaborating entity "timer" for hierarchy "timer:System_Timer0"
+Warning (10873): Using initial value X (don't care) for net "tout[31..1]" at timer.vhd(14)
+Info (12128): Elaborating entity "random" for hierarchy "random:Pseudo_Random"
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13048): Converted tri-state node "mem_in[31]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[30]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[29]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[28]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[27]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[26]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[25]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[24]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[23]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[22]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[21]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[20]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[19]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[18]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[17]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[16]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[15]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[14]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[13]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[12]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[11]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[10]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[9]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[8]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[7]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[6]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[5]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[4]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[3]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[2]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[1]" into a selector
+    Warning (13048): Converted tri-state node "mem_in[0]" into a selector
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|Mult0"
+Info (12130): Elaborated megafunction instantiation "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "32"
+    Info (12134): Parameter "LPM_WIDTHB" = "32"
+    Info (12134): Parameter "LPM_WIDTHP" = "64"
+    Info (12134): Parameter "LPM_WIDTHR" = "64"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_i1t.tdf
+    Info (12023): Found entity 1: mult_i1t
+Info (13014): Ignored 217 buffer(s)
+    Info (13019): Ignored 217 SOFT buffer(s)
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (17049): 30 registers lost all their fanouts during netlist optimizations.
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sld_hub:auto_hub|receive[0][0]" is stuck at GND
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[1]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+Info (21057): Implemented 8521 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 8333 logic cells
+    Info (21064): Implemented 128 RAM segments
+    Info (21062): Implemented 8 DSP elements
+Info: Quartus II 32-bit Analysis & Synthesis was successful. 0 errors, 40 warnings
+    Info: Peak virtual memory: 464 megabytes
+    Info: Processing ended: Tue Dec 20 15:50:39 2016
+    Info: Elapsed time: 00:00:41
+    Info: Total CPU time (on all processors): 00:00:40
+
+

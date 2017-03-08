@@ -1,0 +1,6 @@
+v1
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated|mac_out2,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated|mac_out8,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated|mac_out4,
+DSP_BALANCING_IMPLEMENTATION,DSP_BLOCKS,Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated|mac_out6,
+PORT_SWAPPING,PORT_SWAP_TYPE_DSPMULT,Rhody_CPU_pipelinev43:the_cpu|alu:Rhody_ALU|lpm_mult:Mult0|mult_i1t:auto_generated|mac_mult5,
